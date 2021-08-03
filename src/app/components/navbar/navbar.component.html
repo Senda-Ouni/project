@@ -1,0 +1,81 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark  my-2">
+    <div class ="container ">
+  <a class="navbar-brand" routerLink="/">Navbar</a>
+
+
+  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto ">
+      <li class="nav-item active ">
+        <a class="nav-link text-light " routerLink="/home">Accueil <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+
+      <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Les Projets
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item"  routerLink="/projets">Tous les projets</a>
+          <a class="dropdown-item"  routerLink="/projetsPlanifie">Projets Planifiés</a>
+          <a class="dropdown-item"  routerLink="/projetsenCours">Projet en Cours</a>
+          <a class="dropdown-item"  routerLink="/projetsTermine">Projets Terminés</a>
+          <a class="dropdown-item"  routerLink="/projetsArreteTemporairement">Projets Arrêtés Tomporairement</a>
+          <a class="dropdown-item"  routerLink="/projetsAnnule">Projets Annulés</a>
+          <a class="dropdown-item"  routerLink="/projetsenRetard">Projets en Retard</a>
+
+          </div>
+      </li>
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+        <ul class="navbar-nav mr-auto">
+          <li>
+              <a class="nav-link text-light" style="cursor:pointer" data-toggle="modal" data-target="#exampleModal">
+                 Connecter
+              </a>
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header ">
+                        <h5 class="modal-title text-primary" id="exampleModalLabel"><i class="fa fa-user"> Connexion</i></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                          <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text fa fa-user" id="basic-addon1"></span>
+                              </div>
+                              <input type="text" class="form-control" placeholder="E-mail *"   aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text fa fa-lock" id="basic-addon1"></span> 
+                                </div>
+                                <input type="text" class="form-control" placeholder="Mot de passe *"   aria-describedby="basic-addon1">
+                              </div>
+                              <div class="text-center">
+                                <h6>
+                                <a class=" fa fa-user-plus" routerLink="/Inscription" data-dismiss="modal"> insrivez-vous</a></h6>
+                              </div>
+                            
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Connexion</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </li>
+            <li class="nav-item active">
+                <a class="nav-link text-light" routerLink="/Inscription">Inscrivez-vous</a>
+              </li>
+            <li class="nav-item active">
+              <a class="nav-link text-light" routerLink="/contact">Contact</a>
+            </li>
+            </ul>
+    </form>
+</div>
+  </div>
+</nav>

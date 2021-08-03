@@ -1,0 +1,142 @@
+
+<div class="container">
+  <div class="row  ">
+        <div class="col-lg">
+          <div class="card-body contact text-center h-100 white-text ">
+              <div map-wapper>
+                  <div class="view overlay rounded z-depth-1-half mb-4">
+                    <agm-map [latitude]="detail.latitude" [longitude]="detail.longitude" >
+                        <agm-marker
+                        [latitude]="detail.latitude" 
+                        [longitude]="detail.longitude"
+                        [iconUrl]="detail.iconeMarkerUrl"
+                        > </agm-marker>
+                    </agm-map>
+                    
+                  </div>
+                </div>         
+            </div>
+        </div>
+   </div>
+   <div class="row ">
+      <div class="col my-2">      
+        <h2 class="text-info text-center">{{detail.designation}}    <img src="{{detail.iconeMarkerUrl}}"></h2> 
+        <h5 class="text-center text-dark">---{{detail.projectStateDesignation}}---  </h5>
+        <div class="row">
+          <div class="col-3"></div>
+          <div class="col-6">
+              <p><ngb-progressbar type="info " value="{{detail.percentageOfProgression}}" [striped]="true" [animated]="true"><i>{{detail.percentageOfProgression}}%</i></ngb-progressbar></p>
+
+          </div>
+        </div>
+
+        <p >{{detail.description}}</p>         
+    </div>
+</div>
+<div class="row">
+      <div class="col-4">
+          <div class="card border-secondary mb-3" style="max-width: 18rem;">
+              <div class="card-header bg-info text-light text-center">Localisation</div>
+              <div class="card-body">
+                <ul>
+                  <li> {{detail.governorateDesignation}}
+                  <ul>
+                    <li> {{detail.cityDesignation}} </li>
+                  </ul>  
+                  </li>
+                </ul>
+               </div>
+            </div>
+          <div class="card  border-secondary  mb-3" style="max-width: 18rem;">
+                <div class="card-header bg-info text-light text-center">Temps :{{detail.delaiDay}}</div>
+                <div class="card-body">
+                  <ul>
+                      <li> Année
+                          <ul>
+                            <li> {{detail.yearOfProject }} </li>
+                          </ul>  
+                          </li>
+                    <li> Date début
+                    <ul>
+                      <li> {{detail.dateStartScheduled | date :'shortDate'}} </li>
+                    </ul>  
+                    </li>
+                    <li> Date Fin
+                        <ul>
+                          <li> {{detail.dateEndScheduled  | date :'shortDate'}} </li>
+                        </ul>  
+                        </li>
+                  </ul>
+                 </div>
+              </div>
+       </div>
+       <div class="col-8">
+         <div class="row">
+
+          image
+          {{detail.photo}}
+         </div>
+         <div class="row">
+          <div class="card " style="width:100%">
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active"> Commentaires <span class="badge badge-info ">2</span></a>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">visiteur</h5>
+              <p class="card-text">commentaire</p>
+              
+
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary  pull-right  fa fa-comments" data-toggle="modal" data-target="#exampleModal">
+    Ajouter un commentaire
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header ">
+        <h5 class="modal-title text-primary" id="exampleModalLabel"><i class="fa fa-user"> Connexion</i></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text fa fa-user" id="basic-addon1"></span>
+              </div>
+              <input type="text" class="form-control" placeholder="E-mail *"   aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text fa fa-lock" id="basic-addon1"></span> 
+                </div>
+                <input type="text" class="form-control" placeholder="Mot de passe *"   aria-describedby="basic-addon1">
+              </div>
+              <div class="text-center">
+                <h6>
+                <a class=" fa fa-user-plus" > insrivez-vous</a></h6>
+              </div>
+            
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Connexion</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+            </div>
+          </div>
+         </div>
+       </div>
+</div>
+
+</div>

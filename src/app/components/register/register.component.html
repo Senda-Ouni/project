@@ -1,0 +1,95 @@
+<div class="main-content"style="padding-top: 8%">
+    <div class="container" >
+          <div class="card" style=" padding: 30px">
+              <div class="text-center">
+                  <h2 class=" font-weight-bold text-info  text-center  my-5">Inscription</h2>
+              </div>
+                <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-9">
+                      <form  [formGroup]="form" >
+                          <div class="row">
+                               <div class="col-5">
+                                    <div class=" form-group">
+                                            <h5  class="text-info ">Nom  <i class="fa fa-user"></i></h5> 
+                                            <input type="text" ([ngModel])="visitorRegister.fullName" id="fullName" formControlName="fullName" class="form-control" name="fullname"  [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }"/>
+                                            <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+                                                <div *ngIf="f.fullName.errors.required"class="text-danger">Le champ est vide !!!!</div>
+                                            </div>
+                                     </div> 
+                             </div>   
+                             <div class="col-5">
+                                    <div class=" form-group">
+                                            <h5 class="text-info ">Email <i class="fa fa-envelope"></i></h5> 
+                                            <input type="text" ([ngModel])="visitorRegister.email" formControlName="email" class="form-control" name="email"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+                                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                                <div *ngIf="f.email.errors.required"class="text-danger">Le champ est vide !!!!</div>
+                                                <div *ngIf="f.email.errors.email"class="text-danger">Email n'est pas valide</div>
+                                            </div>
+                                     </div> 
+                                 </div>     
+                           </div>
+                       
+                           <div class="row">
+                                <div class="col-5">
+                                 <div class=" form-group">
+                                         <h5 class="text-info ">Mot de passe <i class="fa fa-key"></i></h5> 
+                                         <input type="password"  ([ngModel])="visitorRegister.password"  formControlName="password" class="form-control" name="password"  [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+                                         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                                <div *ngIf="f.password.errors.minlength"class="text-danger">Minimum 6 chiffre numérique</div>
+                                                <div *ngIf="f.password.errors.required"class="text-danger">Le champ est vide !!!!</div>
+                                                <div *ngIf="f.password.errors.pattern"class="invalid-feedback text-danger">Le mot de passe comporte des lettres majuscule,miniscule et des chiffre</div>
+                                          
+                                         </div>
+                                  </div> 
+                              </div>   
+                              <div class="col-5">
+                                     <div class=" form-group">
+                                             <h5 class="text-info ">Confirmer votre mot de passe <i class="fa fa-key"></i></h5> 
+                                             <input type="password"([ngModel])="visitorRegister.confirmPassword"  formControlName="confirmPassword" class="form-control" name="email"  [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }"/>
+                                             <div *ngIf="confirmPassword.dirty && confirmPassword.errors" class="invalid-feedback text-danger" >Les mots de passe ne correspondent pas</div>
+                                             <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                                                 <div *ngIf="f.confirmPassword.errors.required"class="text-danger">Le champ est vide !!!!</div>
+                                             </div>
+                                      </div> 
+                               </div>     
+                            </div>
+                            <div class="row"> 
+                                    <div class="col-5">
+                                        <div class=" form-group">
+                                            <h5 class="text-info ">Numéro du téléphone <i class="fa fa-phone"></i></h5> 
+                                                <input type="text" ([ngModel])="visitorRegister.phoneNumber" maxlength="8" formControlName="phoneNumber" class="form-control" name="phoneNumber"  [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }"/>
+                                                <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+                                                      <div *ngIf="f.phoneNumber.errors.required"class="text-danger">Le champ est vide !!!!</div>
+                                                      <div *ngIf="f.phoneNumber.errors.minlength"class="text-danger">Minimum 8 chiffre numérique</div>
+                                                      <div *ngIf="f.phoneNumber.errors.pattern"class="invalid-feedback text-danger">Numéro doit être numérique</div>
+                                                 </div>
+                                         </div> 
+                                  </div>    
+                                  </div>
+                           <div class="row">
+                             <div class="col-8"></div>
+                              <div class="col-2">
+                             <div class="form-group">
+                                <div class=" text-center">
+                                    <button  (click)="onSubmit()" type="button" class="btn btn-info">Enregister</button>
+                              </div>
+                            </div>    
+                              </div>
+                           </div>
+                           <div class=" row">
+                                <div class="col-md-8"> 
+                                <div class="alert alert-success" role="alert" *ngIf="responseHandling.succeeded">
+                                        {{responseHandling.message}}
+                                </div>
+                                <div class="alert alert-danger" *ngIf="responseHandling.failed">
+                                        {{responseHandling.message}}
+                                </div>
+                                </div>
+                            </div>
+                    </form>
+                   </div>
+               </div>
+             </div>
+  </div>
+  </div>

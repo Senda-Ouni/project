@@ -1,0 +1,102 @@
+<div class="container-fluid">    
+    <div class="row my-5">
+        <div class="col">
+            <div class="md-form">
+               <div class=" container">  
+                <h2 class="h1-responsive font-weight-bold text-success text-center my-5 ">Projets Planifiés
+                        <span class="badge badge-success  ">{{nbprojectsMap}}</span></h2>
+                        <table class="table my-5">
+
+                                <tr>
+                                    <th>
+                                            
+    
+                                        <select [(ngModel)]="searchCriteria.governorateId" name="foo" class="custom-select">
+                                                <option [ngValue]="selectNullValue">--Tous les gouvernorats--</option>
+                                                <option *ngFor="let a of governorates" [ngValue]="a.id">
+                                                    {{a.designation}}
+                                                </option>
+                                            </select>
+                                    </th>
+                                    <th>
+                                  
+    
+                                            <select [(ngModel)]="searchCriteria.year" name="foo" class="custom-select">
+                                                    <option [ngValue]="selectNullValue">--Tous les années--</option>
+                                                    <option *ngFor="let year of years" [ngValue]="year">
+                                                            {{year}}
+                                                        </option>
+                                                </select>
+    
+                                    </th>
+                                    <th>
+                                            <select [(ngModel)]="searchCriteria.monthMin" name="foo" class="custom-select">
+                                                    <option [ngValue]="selectNullValue">--Tous les mois--</option>
+                                                <option *ngFor="let a of months" [ngValue]="a.value">
+                                                    {{a.text}}
+                                                </option>
+                                            </select>
+                                    </th>
+                                    <th>
+                                            <select [(ngModel)]="searchCriteria.monthMax" name="foo" class="custom-select">
+                                                    <option [ngValue]="selectNullValue">--Tous les mois--</option>
+                                                    <option *ngFor="let a of months" [ngValue]="a.value">
+                                                        {{a.text}}
+                                                    </option>
+                                                </select>
+                                    </th>
+                                    <th>
+                                        <button type="button" class="btn btn-info fa fa-search" (click)="getProjects()">Chercher</button>
+                                </tr>
+                            </table>
+                </div> 
+                <table class="table  table-striped" [mfData]="projectsMap" #mf="mfDataTable" [mfRowsOnPage]="10">
+                        <thead class="bg-success  text-light">
+                            <tr>
+                                <th>
+                                    <mfDefaultSorter by="Nomprojet">Nom Projet</mfDefaultSorter>
+                                </th>
+                                <th>
+                                    <mfDefaultSorter by="Etat">Etat</mfDefaultSorter>
+                                </th>
+                                <th>
+                                    <mfDefaultSorter by="Gouvernorat">Gouvernorat</mfDefaultSorter>
+                                </th>
+                                <th>
+                                    <mfDefaultSorter by="Datedebu">Date début</mfDefaultSorter>
+                                </th>
+                                <th>
+                                    <mfDefaultSorter by="Datefin">Date fin</mfDefaultSorter>
+                                </th>
+                                <th>
+                                    <mfDefaultSorter by="Budget">Budget</mfDefaultSorter>
+                                </th>
+        
+                            </tr>
+                        </thead>
+                        <tbody class="font-weight-bold">
+                            <ng-container *ngFor="let item of mf.data">
+                                <tr>
+                                        <td ><a style="cursor: pointer" (click)="detail(item.id)">{{item.designation}}</a></td>
+                                        <td>{{item.projectStateDesignation}}</td>
+                                        <td>{{item.governorateDesignation}}</td>
+                                        <td>{{item.dateStartScheduled | date : 'shortDate' }}</td>
+                                        <td>{{item.dateEndScheduled | date : 'shortDate' }}</td>
+                                        <td>{{item.budget | number}}</td>
+        
+                                </tr>
+                            </ng-container>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4">
+                                    <mfBootstrapPaginator [rowsOnPageSet]="[5,10]"></mfBootstrapPaginator>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+           
+    </div>
+</div> 
